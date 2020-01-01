@@ -1,0 +1,7 @@
+en:
+  hello: "Hello world"
+  one:
+    two:
+      three:
+        four:
+          five: "Five"

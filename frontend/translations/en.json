@@ -1,0 +1,10 @@
+{
+  "app":{
+    "common": {
+      "nav": {
+        "header": "##hello",
+        "footer": "one##two##three##four##five"
+      }
+    }
+  }
+}
