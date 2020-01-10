@@ -9,7 +9,7 @@ gem 'i18n', '0.9.5'
 gem 'i18n-js', '3.2.3'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.3.13'
+#gem 'sqlite3', '~> 1.3.13'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
