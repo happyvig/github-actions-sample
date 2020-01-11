@@ -1,0 +1,29 @@
+name: frontend_chores
+
+# This workflow is triggered on pushes to the repository.
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the master branch
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create commit comment
+        uses: peter-evans/commit-comment@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+	          This is a multi-line test comment
+	          - With GitHub **Markdown**
+    	      - Created by [commit-comment][1]
+
+	          [1]: https://github.com/peter-evans/commit-comment
