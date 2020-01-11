@@ -18,12 +18,12 @@ jobs:
 
     steps:
       - name: Create commit comment
-        uses: peter-evans/commit-comment@v1
+        uses: peter-evans/commit-comment@v1.0.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-	          This is a multi-line test comment
-	          - With GitHub **Markdown**
-    	      - Created by [commit-comment][1]
+            This is a multi-line test comment
+            - With GitHub **Markdown**
+            - Created by [commit-comment][1]
 
-	          [1]: https://github.com/peter-evans/commit-comment
+            [1]: https://github.com/peter-evans/commit-comment
