@@ -27,3 +27,11 @@ jobs:
         gem install bundler -v 1.10.6
         bundle install --jobs 4 --retry 3
         bundle exec rake frontend_chores:copy_keys['en']
+      id: rake
+    - name: Add PR Comment
+      uses: mshick/add-pr-comment@v1
+      with:
+        message: ${{ steps.rake.outputs }}
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        allow-repeats: false
+      
