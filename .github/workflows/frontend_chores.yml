@@ -28,11 +28,13 @@ jobs:
       run: bundle install --jobs 4 --retry 3
     - name: Run frontend_chores rake task
       run: bundle exec rake frontend_chores:copy_keys['en']
-      id: rake
+      id: hello
+    - name: Echo previous output
+      run: echo '${{ steps.hello.outputs }}.'
     - name: Add PR Comment
       uses: mshick/add-pr-comment@v1
       with:
-        message: ${{ steps.rake.outputs }}
+        message: ${{ steps.hello.outputs }}
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         allow-repeats: false
       
