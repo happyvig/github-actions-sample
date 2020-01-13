@@ -25,6 +25,4 @@ jobs:
           message: |
             This is a multi-line test comment added in PR
             - With GitHub **Markdown**
-            - Created by [add-pr-comment][1]
-
-            [1]: https://github.com/mshick/add-pr-comment
+            - Created by add-pr-comment
