@@ -17,13 +17,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Create commit comment
-        uses: peter-evans/commit-comment@v1.0.1
+      - name: Add PR Comment
+        uses: mshick/add-pr-comment@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          body: |
-            This is a multi-line test comment
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          allow-repeats: false
+          message: |
+            This is a multi-line test comment added in PR
             - With GitHub **Markdown**
-            - Created by [commit-comment][1]
+            - Created by [add-pr-comment][1]
 
-            [1]: https://github.com/peter-evans/commit-comment
+            [1]: https://github.com/mshick/add-pr-comment
