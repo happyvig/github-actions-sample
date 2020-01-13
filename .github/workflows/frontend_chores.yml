@@ -22,11 +22,12 @@ jobs:
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.x
+    - name: Install bundler v 1.10.6
+      run: gem install bundler -v 1.10.6
+    - name: Bundle install
+      run: bundle install --jobs 4 --retry 3
     - name: Run frontend_chores rake task
-      run: |
-        gem install bundler -v 1.10.6
-        bundle install --jobs 4 --retry 3
-        bundle exec rake frontend_chores:copy_keys['en']
+      run: bundle exec rake frontend_chores:copy_keys['en']
       id: rake
     - name: Add PR Comment
       uses: mshick/add-pr-comment@v1
