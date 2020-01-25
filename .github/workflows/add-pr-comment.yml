@@ -21,11 +21,11 @@ jobs:
           allow-repeats: false
           message: |
             This is a multi-line test comment added in PR
-            - **GITHUB_WORKFLOW** (The name of the workflow.) : ${{ GITHUB_WORKFLOW }}
-            - **GITHUB_ACTION** (The unique identifier of the action) : ${{ GITHUB_ACTION }}
-            - **GITHUB_ACTOR** : ${{ GITHUB_ACTOR }}
-            - **GITHUB_REPOSITORY** : ${{ GITHUB_REPOSITORY }}
-            - **GITHUB_EVENT_NAME** (The name of the webhook event that triggered the workflow.) : ${{ GITHUB_EVENT_NAME }}
-            - **GITHUB_WORKSPACE** (The GitHub workspace directory path. ) : ${{ GITHUB_WORKSPACE }}
-            - **GITHUB_SHA** (The commit SHA that triggered the workflow) : ${{ GITHUB_SHA }}
-            - **GITHUB_REF** (The branch or tag ref that triggered the workflow) : ${{ GITHUB_REF }}
+            - **GITHUB_WORKFLOW** (The name of the workflow.) : ${{ env.GITHUB_WORKFLOW }}
+            - **GITHUB_ACTION** (The unique identifier of the action) : ${{ env.GITHUB_ACTION }}
+            - **GITHUB_ACTOR** : ${{ env.GITHUB_ACTOR }}
+            - **GITHUB_REPOSITORY** : ${{ env.GITHUB_REPOSITORY }}
+            - **GITHUB_EVENT_NAME** (The name of the webhook event that triggered the workflow.) : ${{ env.GITHUB_EVENT_NAME }}
+            - **GITHUB_WORKSPACE** (The GitHub workspace directory path. ) : ${{ env.GITHUB_WORKSPACE }}
+            - **GITHUB_SHA** (The commit SHA that triggered the workflow) : ${{ env.GITHUB_SHA }}
+            - **GITHUB_REF** (The branch or tag ref that triggered the workflow) : ${{ env.GITHUB_REF }}
