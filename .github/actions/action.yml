@@ -1,13 +1,18 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'Action test'
+description: 'Action test'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  message:
+    description: "the message to print"
     required: true
-    default: '1000'
+ repo-token:
+    description: "a github token for API access"
+    required: true
 outputs:
-  time: # output will be available to future steps 
-    description: 'The message to output'
+  comment-created: # output will be available to future steps 
+    description: 'Boolean: comment-created'
+branding:
+  icon: message-circle
+  color: purple
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: "node12"
+  main: "dist/index.js"
