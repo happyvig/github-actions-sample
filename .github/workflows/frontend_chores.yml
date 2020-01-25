@@ -23,7 +23,7 @@ jobs:
     - name: Install bundler v 1.10.6
       run: gem install bundler -v 1.10.6
     - name: Bundle install
-      run: bundle install --jobs 4 --retry  
+      run: bundle install --jobs 4 --retry 2 
   execute_rake:
     name: Executes rake
     needs: install
