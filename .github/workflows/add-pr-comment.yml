@@ -1,12 +1,10 @@
 name: Add PR Comment
 
-# This workflow is triggered on pushes to the repository.
 on:
-  # Trigger the workflow on push or pull request,
-  # but only for the master branch
-  pull_request:
+  # Trigger the workflow on 'push' event only on the 'master' branch
+  push:
     branches:
-      - master1
+      - master
     paths-ignore:
       - '.github/**'
 
@@ -16,12 +14,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Add PR Comment
+      - name: Add PR Comment with all ENV variables
         uses: mshick/add-pr-comment@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           allow-repeats: false
           message: |
             This is a multi-line test comment added in PR
-            - With GitHub **Markdown**
-            - Created by add-pr-comment
+            - **GITHUB_WORKFLOW** (The name of the workflow.) : ${{ GITHUB_WORKFLOW }}
+            - **GITHUB_ACTION** (The unique identifier of the action) : ${{ GITHUB_ACTION }}
+            - **GITHUB_ACTOR** : ${{ GITHUB_ACTOR }}
+            - **GITHUB_REPOSITORY** : ${{ GITHUB_REPOSITORY }}
+            - **GITHUB_EVENT_NAME** (The name of the webhook event that triggered the workflow.) : ${{ GITHUB_EVENT_NAME }}
+            - **GITHUB_WORKSPACE** (The GitHub workspace directory path. ) : ${{ GITHUB_WORKSPACE }}
+            - **GITHUB_SHA** (The commit SHA that triggered the workflow) : ${{ GITHUB_SHA }}
+            - **GITHUB_REF** (The branch or tag ref that triggered the workflow) : ${{ GITHUB_REF }}
