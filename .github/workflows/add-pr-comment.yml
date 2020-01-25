@@ -1,15 +1,14 @@
-name: frontend_chores
+name: Add PR Comment
 
 # This workflow is triggered on pushes to the repository.
 on:
   # Trigger the workflow on push or pull request,
   # but only for the master branch
-  push:
-    branches:
-      - master
   pull_request:
     branches:
-      - master
+      - master1
+    paths-ignore:
+      - '.github/**'
 
 jobs:
   build:
