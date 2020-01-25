@@ -16,12 +16,12 @@ on:
       - '.github/**'
 
 jobs:
-  build:
-
+  install:
+    name: Install job
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v1
+    - name: Checkout
+      uses: actions/checkout@v1
     - name: Set up Ruby 2.6
       uses: actions/setup-ruby@v1
       with:
@@ -29,12 +29,27 @@ jobs:
     - name: Install bundler v 1.10.6
       run: gem install bundler -v 1.10.6
     - name: Bundle install
-      run: bundle install --jobs 4 --retry 3
+      run: bundle install --jobs 4 --retry 
+  
+  
+  execute_rake:
+    name: Executes rake
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
     - name: Run frontend_chores rake task
       run: bundle exec rake frontend_chores:copy_keys['en']
       id: hello
     - name: Echo previous output
+      if: success()
       run: echo '${{ steps.hello.outputs }}.'
+    
+    
+  add_pr:
+    name: Add PR comment
+    needs: [install, execute_rake]
+    runs-on: ubuntu-latest
+    steps: 
     - name: Add PR Comment
       uses: mshick/add-pr-comment@v1
       with:
