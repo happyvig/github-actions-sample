@@ -11,7 +11,7 @@ on:
 
 jobs:
   install:
-    name: Install job
+    name: Execute my rake task
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -23,27 +23,19 @@ jobs:
     - name: Install bundler v 1.10.6
       run: gem install bundler -v 1.10.6
     - name: Bundle install
+      if: success()
       run: bundle install --jobs 4 --retry 2 
-  execute_rake:
-    name: Executes rake
-    needs: install
-    runs-on: ubuntu-latest
-    steps:
     - name: Run frontend_chores rake task
+      if: success()
       run: bundle exec rake frontend_chores:copy_keys['en']
       id: hello
     - name: Echo previous output
-#       if: success()
-      run: echo '${{ steps.hello.outputs }}.   
-  add_pr:
-    name: Add PR comment
-    needs: [install, execute_rake]
-    runs-on: ubuntu-latest
-    steps: 
+      if: success()
+      run: echo '${{ steps.hello.outputs }}.
     - name: Add PR Comment
+      if: success()
       uses: mshick/add-pr-comment@v1
       with:
         message: ${{ steps.hello.outputs }}
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         allow-repeats: false
-      
