@@ -1,14 +1,8 @@
-name: frontend_chores
+name: Run Frontend Chores
 
-# This workflow is triggered on pushes to the repository.
 on:
-  # Trigger the workflow on push or pull request,
+  # Trigger the workflow on pull request,
   # but only for the master branch
-  push:
-    branches:
-      - master
-    paths-ignore:
-      - '.github/**'
   pull_request:
     branches:
       - master
@@ -29,9 +23,7 @@ jobs:
     - name: Install bundler v 1.10.6
       run: gem install bundler -v 1.10.6
     - name: Bundle install
-      run: bundle install --jobs 4 --retry 
-  
-  
+      run: bundle install --jobs 4 --retry  
   execute_rake:
     name: Executes rake
     needs: install
@@ -41,10 +33,8 @@ jobs:
       run: bundle exec rake frontend_chores:copy_keys['en']
       id: hello
     - name: Echo previous output
-      if: success()
-      run: echo '${{ steps.hello.outputs }}.'
-    
-    
+#       if: success()
+      run: echo '${{ steps.hello.outputs }}.   
   add_pr:
     name: Add PR comment
     needs: [install, execute_rake]
