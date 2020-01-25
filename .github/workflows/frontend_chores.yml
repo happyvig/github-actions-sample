@@ -13,6 +13,8 @@ jobs:
   install:
     name: Execute my rake task
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
     - name: Checkout
       uses: actions/checkout@v1
@@ -37,5 +39,5 @@ jobs:
       uses: mshick/add-pr-comment@v1
       with:
         message: ${{ steps.hello.outputs }}
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        repo-token: ${{ GITHUB_TOKEN }}
         allow-repeats: false
