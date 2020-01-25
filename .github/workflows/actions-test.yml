@@ -15,7 +15,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
     - name: Custom action
-      uses:  /.github/actions # Uses an action in the root directory
+      uses:  happyvig/github-actions-sample/.github/actions # Uses an action in the root directory
       id: hello
       with:
         message: 'Test commit from custom action'
