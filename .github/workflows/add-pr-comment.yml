@@ -14,6 +14,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
       - name: Add PR Comment with all ENV variables
         uses: mshick/add-pr-comment@v1
         with:
@@ -21,11 +25,11 @@ jobs:
           allow-repeats: false
           message: |
             This is a multi-line test comment added in PR
-            - **GITHUB_WORKFLOW** (The name of the workflow.) : ${{ env.GITHUB_WORKFLOW }}
-            - **GITHUB_ACTION** (The unique identifier of the action) : ${{ env.GITHUB_ACTION }}
-            - **GITHUB_ACTOR** : ${{ env.GITHUB_ACTOR }}
-            - **GITHUB_REPOSITORY** : ${{ env.GITHUB_REPOSITORY }}
-            - **GITHUB_EVENT_NAME** (The name of the webhook event that triggered the workflow.) : ${{ env.GITHUB_EVENT_NAME }}
-            - **GITHUB_WORKSPACE** (The GitHub workspace directory path. ) : ${{ env.GITHUB_WORKSPACE }}
-            - **GITHUB_SHA** (The commit SHA that triggered the workflow) : ${{ env.GITHUB_SHA }}
-            - **GITHUB_REF** (The branch or tag ref that triggered the workflow) : ${{ env.GITHUB_REF }}
+            - **GITHUB_WORKFLOW** (The name of the workflow.) : ${{ github.workflow }}
+            - **GITHUB_ACTION** (The unique identifier of the action) : ${{ github.action }}
+            - **GITHUB_ACTOR** : ${{ github.actor }}
+            - **GITHUB_REPOSITORY** : ${{ github.repository }}
+            - **GITHUB_EVENT_NAME** (The name of the webhook event that triggered the workflow.) : ${{ github.event_name }}
+            - **GITHUB_WORKSPACE** (The GitHub workspace directory path. ) : ${{ github.workspace }}
+            - **GITHUB_SHA** (The commit SHA that triggered the workflow) : ${{ github.sha }}
+            - **GITHUB_REF** (The branch or tag ref that triggered the workflow) : ${{ github.ref }}
