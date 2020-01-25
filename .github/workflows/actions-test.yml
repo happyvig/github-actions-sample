@@ -1,0 +1,26 @@
+name: Actions Test
+
+on:
+  push:
+    branches: 
+      - master
+    paths-ignore:
+      - '.github/**'
+
+jobs:
+  run
+    name: Test
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+    - name: Custom action
+      uses:  ./ # Uses an action in the root directory
+      id: hello
+      with:
+        message: 'Test commit from custom action'
+        repo-token: ${{ env.GITHUB_TOKEN }}
+    - name: Echo previous output
+      if: success()
+      run: echo '${{ steps.hello.outputs.comment-created }}'
+  
