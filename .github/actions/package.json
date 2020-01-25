@@ -1,0 +1,23 @@
+{
+  "name": "actions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "package": "ncc build main.js -o dist"
+  },
+  "dependencies": {
+    "@actions/core": "^1.1.1",
+    "@actions/github": "^1.1.0"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.20.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/happyvig/github-actions-sample.git"
+  },
+  "keywords": [],
+  "author": "Vignesh K",
+  "license": "ISC"
+}
