@@ -14,12 +14,17 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
+      
+    - name: Checkout
+      uses: actions/checkout@v1 
+      
     - name: Custom action
-      uses:  .github/actions # Uses an action in the root directory
+      uses:  ./.github/actions/action           # Uses an action in the root directory
       id: hello
       with:
         message: 'Test commit from custom action'
         repo-token: ${{ env.GITHUB_TOKEN }}
+      
     - name: Echo previous output
       if: success()
       run: echo '${{ steps.hello.outputs.comment-created }}'
