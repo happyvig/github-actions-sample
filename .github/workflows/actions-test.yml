@@ -19,12 +19,12 @@ jobs:
       uses: actions/checkout@v1 
       
       # '/home/runner/work/github-actions-sample/github-actions-sample/.github/actions/action'
-    - name: Custom action
-      uses: /.github/actions/action           # Uses an action in the root directory
-      id: hello
-      with:
-        message: 'Test commit from custom action'
-        repo-token: ${{ env.GITHUB_TOKEN }}
+#     - name: Custom action
+#       uses: /.github/actions/action           # Uses an action in the root directory
+#       id: hello
+#       with:
+#         message: 'Test commit from custom action'
+#         repo-token: ${{ env.GITHUB_TOKEN }}
       
     - name: Echo previous output
       if: success()
