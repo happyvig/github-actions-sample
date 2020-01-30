@@ -20,7 +20,7 @@ jobs:
       
       # '/home/runner/work/github-actions-sample/github-actions-sample/.github/actions/action'
     - name: Custom action
-      uses: ./.github/actions/action-test           # Uses an action in the root directory
+      uses: ./.github/actions/actions-test           # Uses an action in the root directory
       id: hello
       with:
         message: 'Test commit from custom action'
