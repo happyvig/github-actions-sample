@@ -4,7 +4,7 @@ inputs:
   message:
     description: "the message to print"
     required: true
- repo-token:
+  repo-token:
     description: "a github token for API access"
     required: true
 outputs:
