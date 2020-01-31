@@ -1,0 +1,23 @@
+name: 'Check PR title format'
+on:
+  pull_request:
+    branches:
+      - master
+    types:
+      # Check title when opened.
+      - opened
+      # Check title when new commits are pushed.
+      # Required to use as a status check.
+      - synchronize
+    paths-ignore:
+      - '.github/**'
+
+jobs:
+  publish:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - uses: dylanvann/check-pull-request-title@v1
+        with:
+          # Match pull request titles in the form '[FS-1234]: Message'
+          pattern: '^(\[FS-\d+\])((?:\s*,\s*\[FS-\d+\])*)(?:\s*:?\s*([\w\s]+))?'
