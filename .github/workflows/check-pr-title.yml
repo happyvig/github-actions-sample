@@ -28,4 +28,4 @@ jobs:
 
       - name: Echo previous output
         if: success()
-        run: echo 'PR Title Format: ${{ steps.pr-title-checker.outputs.pr-title-format }}'
+        run: echo '${{ steps.pr-title-checker.outputs.pr-title-format }}'
