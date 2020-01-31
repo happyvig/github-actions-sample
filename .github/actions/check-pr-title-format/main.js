@@ -18,6 +18,9 @@ async function run() {
   const { full_name: repoFullName } = repository;
   const [owner, repo] = repoFullName.split("/");
 
+
+  issueNumber = 9;
+  
   const octokit = new github.GitHub(repoToken);
 
   core.info(title);
@@ -25,16 +28,16 @@ async function run() {
   if (!isValid) {
     core.setOutput("pr-title-format", "invalid");
 
-    let response = await octokit.issues.createLabel({ 
-      owner, 
-      repo, 
-      name: 'check-pr-title-format', 
-      color: 'ff0000', 
-      description: 'Label to identify whether the PR title is in the required format' 
-    });
+    // let response = await octokit.issues.createLabel({ 
+    //   owner, 
+    //   repo, 
+    //   name: 'check-pr-title-format', 
+    //   color: 'ff0000', 
+    //   description: 'Label to identify whether the PR title is in the required format' 
+    // });
 
-    console.log('Label created !!!!');
-    console.log(response)
+    // console.log('Label created !!!!');
+    // console.log(response)
     console.log(`Added the new label to the issue #{issueNumber}`);
     if(response) {
       await octokit.issues.addLabels({ 
