@@ -1,0 +1,22 @@
+name: Check PR title format 
+
+description: Check that pull request titles contain [FS-] syntax
+
+inputs:
+  pattern:
+    description: 'A regex pattern to check if a pull request title is valid.'
+    required: true
+    default: '^(\[FS-\d+\])((?:\s*,\s*\[FS-\d+\])*)(?:\s*:?\s*([\w\s]+))?' # '[FS-12345]: Message' format
+
+output:
+  pr-title-format:
+    description:  'Boolean: pr-title-format'
+
+# You can use a color and Feather icon to create a badge to personalize and distinguish your action in GitHub Marketplace.
+branding: 
+  icon: check-circle
+  color: purple
+
+runs:
+  using: node12
+  main: dist/index.js

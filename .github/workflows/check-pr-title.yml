@@ -16,8 +16,16 @@ jobs:
   publish:
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v1
-      - uses: dylanvann/check-pull-request-title@v1
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Check PR title format
+        uses: dylanvann/check-pull-request-title@v1
+        id: pr-title-checker
         with:
           # Match pull request titles in the form '[FS-1234]: Message'
           pattern: '^(\[FS-\d+\])((?:\s*,\s*\[FS-\d+\])*)(?:\s*:?\s*([\w\s]+))?'
+
+      - name: Echo previous output
+        if: success()
+        run: echo 'PR Title Format: ${{ steps.pr-title-checker.outputs.pr-title-format }}'

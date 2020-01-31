@@ -1,5 +1,7 @@
 name: 'Action test'
+
 description: 'Action test'
+
 inputs:
   message:
     description: "the message to print"
@@ -7,12 +9,16 @@ inputs:
   repo-token:
     description: "a github token for API access"
     required: true
+
 outputs:
   comment-created: # output will be available to future steps 
     description: 'Boolean: comment-created'
+
+# You can use a color and Feather icon to create a badge to personalize and distinguish your action in GitHub Marketplace.
 branding:
   icon: message-circle
   color: purple
+
 runs:
-  using: "node12"
-  main: "dist/index.js"
+  using: node12
+  main: dist/index.js

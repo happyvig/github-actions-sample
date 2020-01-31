@@ -1,8 +1,8 @@
 {
-  "name": "actions-test",
+  "name": "check-pr-title-format",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "package": "ncc build main.js -o dist"
   },
