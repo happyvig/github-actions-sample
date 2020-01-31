@@ -17,6 +17,8 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-18.04
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -27,6 +29,7 @@ jobs:
         with:
           # Match pull request titles in the form '[FS-1234]: Message'
           pattern: '^(\[FS-\d+\])((?:\s*,\s*\[FS-\d+\])*)(?:\s*:?\s*([\w\s]+))?'
+          repo-token: ${{ env.GITHUB_TOKEN }}
 
       - name: Echo previous output
         if: success()

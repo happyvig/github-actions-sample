@@ -7,6 +7,9 @@ inputs:
     description: 'A regex pattern to check if a pull request title is valid.'
     required: true
     default: '^(\[FS-\d+\])((?:\s*,\s*\[FS-\d+\])*)(?:\s*:?\s*([\w\s]+))?' # '[FS-12345]: Message' format
+  repo-token:
+    description: "a github token for API access"
+    required: true
 
 output:
   pr-title-format:
