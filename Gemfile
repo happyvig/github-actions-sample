@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.11.1'
 
 gem 'rake', '13.0.1'
+
 gem 'i18n', '0.9.5'
 gem 'i18n-js', '3.2.3'
 
