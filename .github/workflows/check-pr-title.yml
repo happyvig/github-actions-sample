@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Check PR title format
-        uses: dylanvann/check-pull-request-title@v1
+        uses: ./.github/actions/check-pr-title-format
         id: pr-title-checker
         with:
           # Match pull request titles in the form '[FS-1234]: Message'
