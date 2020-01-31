@@ -40,7 +40,7 @@ async function run() {
       await octokit.issues.addLabels({ 
         owner, 
         repo, 
-        issueNumber, 
+        issueNumber: 9, 
         labels: ['check-pr-title-format']
       });
     }
@@ -55,7 +55,7 @@ async function run() {
     await octokit.issues.removeLabel({ 
       owner, 
       repo, 
-      issueNumber, 
+      issueNumber: 9, 
       name: 'check-pr-title-format'
     });
   }
