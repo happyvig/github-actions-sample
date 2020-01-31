@@ -29,7 +29,7 @@ async function run() {
       owner, 
       repo, 
       name: 'check-pr-title-format', 
-      color: '#ff0000', 
+      color: 'ff0000', 
       description: 'Label to identify whether the PR title is in the required format' 
     });
 
