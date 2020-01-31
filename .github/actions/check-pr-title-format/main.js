@@ -36,14 +36,14 @@ async function run() {
     // console.log('Label created !!!!');
     // console.log(response)
     console.log(`Added the new label to the issue 9`);
-    if(response) {
+    // if(response) {
       await octokit.issues.addLabels({ 
         owner, 
         repo, 
         issueNumber: 9, 
         labels: ['check-pr-title-format']
       });
-    }
+    // }
 
     core.setFailed(
       `Pull request title "${title}" does not match regex pattern "${pattern}".`,
