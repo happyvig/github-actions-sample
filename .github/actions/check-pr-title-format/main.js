@@ -18,9 +18,6 @@ async function run() {
   const { full_name: repoFullName } = repository;
   const [owner, repo] = repoFullName.split("/");
 
-
-  issueNumber = 9;
-  
   const octokit = new github.GitHub(repoToken);
 
   core.info(title);
@@ -38,7 +35,7 @@ async function run() {
 
     // console.log('Label created !!!!');
     // console.log(response)
-    console.log(`Added the new label to the issue #{issueNumber}`);
+    console.log(`Added the new label to the issue 9`);
     if(response) {
       await octokit.issues.addLabels({ 
         owner, 
