@@ -7,7 +7,7 @@
     "package": "ncc build main.js -o dist"
   },
   "dependencies": {
-    "@actions/core": "^1.1.1",
+    "@actions/core": "^1.2.6",
     "@actions/github": "^1.1.0"
   },
   "devDependencies": {
